@@ -1,18 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from 'react-redux';
 
 import Routes from './src/routes/';
-import PageHeader from './src/components/Header';
+import store from './src/store';
 
 export default function App() {
   return (
     <>
-      <NavigationContainer>
-        {/* <PageHeader /> */}
-        <Routes />
-      </NavigationContainer>
-      <StatusBar style="light" />
+      <Provider store={store}>
+        <NavigationContainer>
+          <Routes />
+        </NavigationContainer>
+        <StatusBar style="light" />
+      </Provider>
     </>
 );  
 }
