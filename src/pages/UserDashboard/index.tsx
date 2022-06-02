@@ -32,7 +32,9 @@ const HomePage = () => {
     <Wrapper key={item.id}> 
       <TouchableButton 
         color='#6A5ACD'
-        onPress={() => navigate("NegotiationPage")}
+        onPress={() => navigate("NegotiationPage", {
+          name: item.name,
+        })}
       >
           {item.name}
       </TouchableButton>
@@ -45,7 +47,7 @@ const HomePage = () => {
         <FlatList
           data={cryptocurrency}
           renderItem={renderItem}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.name}
         />
       </ScrollView>
     </Container>
