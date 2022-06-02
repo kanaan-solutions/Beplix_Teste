@@ -1,15 +1,15 @@
-import { IUserName, LOAD_REQUEST, LOAD_SUCCESS, LOAD_FAILURE } from './types';
+import { USER_LOAD_REQUEST, USER_LOAD_SUCCESS, USER_LOAD_FAILURE } from './types';
 
-export const loadRequest = () => ({
-  type: LOAD_REQUEST,
+export const userLoadRequest = () => ({
+  type: USER_LOAD_REQUEST,
 });
 
-export const loadSuccess = (data: string) => ({
-  type: LOAD_SUCCESS,
+export const userLoadSuccess = (data: string) => ({
+  type: USER_LOAD_SUCCESS,
   payload: data,
 }
 );
 
-export const loadFailure = () => ({
-  type: LOAD_FAILURE,
+export const userLoadFailure = () => ({
+  type: USER_LOAD_FAILURE,
 });

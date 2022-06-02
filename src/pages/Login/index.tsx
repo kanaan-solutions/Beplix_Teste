@@ -3,26 +3,27 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { ApplicationState } from "../../store";
 import * as UserNameAction from "../../store/ducks/userName/actions";
-import { IUserName, UserNameState } from "../../store/ducks/userName/types";
+import * as UserPasswordAction from "../../store/ducks/userPassword/actions";
+import { IUserName } from "../../store/ducks/userName/types";
 
 import { useNavigation } from "@react-navigation/native";
 import { View, Alert} from 'react-native';
-import  api from '../../services/pokeApi';
 
 import TextInput from "../../components/TextInput";
 import TouchableButton from "../../components/TouchableButton";
 
 import { Container } from './styles';
-import { IPokemonMove, IPokemonName } from "../../utils/interfaces";
+import { IUserPassword } from "../../store/ducks/userPassword/types";
 
 interface StateProps {
-  userCredential: IUserName[];
+  userCredential: IUserName[] | IUserPassword[];
 }
 
 const Login: React.FC<StateProps> = () => {
-  const userCredential = useSelector((state: ApplicationState) => {
-    return state.userName.data;
-  });
+  const userCredential = useSelector((state: ApplicationState) => 
+    state
+  );
+
   const dispatch = useDispatch();
 
   const [usuario, setUsuario] = useState("");
@@ -33,38 +34,14 @@ const Login: React.FC<StateProps> = () => {
   const { navigate } = useNavigation();
 
   useEffect (() => {
-    dispatch(UserNameAction.loadRequest())
+    dispatch(UserNameAction.userLoadRequest());
+    dispatch(UserPasswordAction.passwordLoadRequest());
 
-    setPokemonName(userCredential);
-
-    // async function fetchData() {   
-    //   try {
-    //     const request_1 = await api.get('pokemon?limit=100000&offset=0')
-
-    //     const response = request_1.data.results
-    //     response.map((item: IPokemonName) => {
-    //       if (item.name === "arceus")
-    //         setPokemonName(item.name)
-    //     })
-              
-    //     const request_2 = await api.get("move/")
-
-    //     const response_2 = request_2.data.results
-    //     response_2.map((item: IPokemonMove) => {
-    //       if (item.name === "swords-dance") 
-    //         setMoveName(item.name)
-    //     })
-    //   } catch (err: any) {
-    //     Alert.alert('Erro', `${err.response.data.message}`);
-    //   }
-    // }
-    // fetchData();
+    setPokemonName(userCredential.userName.data);
+    setMoveName(userCredential.userPassword.data);
   }, [])
 
   function handleLogin() {
-    console.log(pokemonName)
-    console.log(usuario)
-
    if (usuario === pokemonName && password === moveName) {
       navigate("HomePage")
     } else {

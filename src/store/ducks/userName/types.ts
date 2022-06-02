@@ -1,25 +1,25 @@
 // Action Types
-export const LOAD_REQUEST = 'LOAD_REQUEST';
-export const LOAD_SUCCESS = 'LOAD_SUCCESS';
-export const LOAD_FAILURE = 'LOAD_FAILURE';
+export const USER_LOAD_REQUEST = 'USER_LOAD_REQUEST';
+export const USER_LOAD_SUCCESS = 'USER_LOAD_SUCCESS';
+export const USER_LOAD_FAILURE = 'USER_LOAD_FAILURE';
 
-export interface loadRequestAction {
-  type: typeof LOAD_REQUEST;
+export interface userLoadRequestAction {
+  type: typeof USER_LOAD_REQUEST;
 }
 
-interface loadSuccessAction {
-  type: typeof LOAD_SUCCESS;
+interface userLoadSuccessAction {
+  type: typeof USER_LOAD_SUCCESS;
   payload: string;
 }
 
-interface loadFailuretAction {
-  type: typeof LOAD_FAILURE;
+interface userLoadFailuretAction {
+  type: typeof USER_LOAD_FAILURE;
 }
 
 export type UserNameAction = 
-          loadRequestAction | 
-          loadSuccessAction | 
-          loadFailuretAction;
+          userLoadRequestAction | 
+          userLoadSuccessAction | 
+          userLoadFailuretAction;
 
 export interface IResults {
   name: string;
