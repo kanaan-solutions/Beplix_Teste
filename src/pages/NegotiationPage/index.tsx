@@ -1,14 +1,12 @@
 import { ReactNode } from 'react';
 
-import { Text } from 'react-native';
-
 import { Container } from './styles';
 
-function HomePage() {
+function NegotiationPage() {
   return (
     <Container>
     </Container>
   );
 };
 
-export default HomePage;
+export default NegotiationPage;

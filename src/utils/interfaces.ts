@@ -27,3 +27,9 @@ export interface IPokemonMove {
 	name: string;
 	url: string;
 }
+
+export interface ICryptocurrency {
+	id: number;
+	rank: number;
+	name: string;
+}

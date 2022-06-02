@@ -5,18 +5,10 @@ export const Container = styled.View`
 	justify-content: center;
 	align-items: center;
 	background-color: #ccc;
+	padding: 45px;
 `;
 
-export const LoginText = styled.Text `
-	font-size: 18px;
-	color: #ffffff;
-	font-weight: bold;
-`;
- 
 export const Wrapper = styled.View `
-	background-color: green;
-	width: 330px;
-	padding: 20px;
-	align-items: center;
-	justify-content: center;
+	margin: 10px;
+	padding-top: 10px;
 `;

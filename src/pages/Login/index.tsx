@@ -26,7 +26,7 @@ const Login: React.FC<StateProps> = () => {
 
   const dispatch = useDispatch();
 
-  const [usuario, setUsuario] = useState("");
+  const [user, setUser] = useState("");
   const [pokemonName, setPokemonName] = useState("");
   const [password, setPassword] = useState("");
   const [moveName, setMoveName] = useState("");
@@ -37,15 +37,15 @@ const Login: React.FC<StateProps> = () => {
     dispatch(UserNameAction.userLoadRequest());
     dispatch(UserPasswordAction.passwordLoadRequest());
 
-    setPokemonName(userCredential.userName.data);
-    setMoveName(userCredential.userPassword.data);
+    setPokemonName(userCredential?.userName.data);
+    setMoveName(userCredential?.userPassword.data);
   }, [])
 
   function handleLogin() {
-   if (usuario === pokemonName && password === moveName) {
-      navigate("HomePage")
-    } else {
+   if (user !== pokemonName && password !== moveName) {
       Alert.alert("Usuário ou senha não conferem")
+    } else {
+      navigate("UserDashboard")
     }
   }
 
@@ -55,8 +55,8 @@ const Login: React.FC<StateProps> = () => {
 
         <TextInput 
           placeholder="Usuário"
-          value={usuario}
-          onChangeText={(text) => setUsuario(text)}
+          value={user}
+          onChangeText={(text) => setUser(text)}
         />
 
         <TextInput 

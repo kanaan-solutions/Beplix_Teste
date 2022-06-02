@@ -37,6 +37,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
+utils/CoinMarketCapCredential
 
 # Android/IntelliJ
 #

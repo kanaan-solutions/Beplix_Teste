@@ -6,7 +6,7 @@ import { TouchableProps } from '../../utils/interfaces';
 export const Container = styled(TouchableOpacity)<TouchableProps>`
   background: ${(props): string => props.color || 'white'} 0% 0% no-repeat padding-box;
   color: white;
-  width: 300px;
+  width: 280px;
   height: 40px;
   border-radius: 8px;
   font-weight: bold;
