@@ -1,6 +1,7 @@
 import React, { ButtonHTMLAttributes, FormEvent } from 'react';
 import { TextInputProps, TouchableOpacityProps} from 'react-native';
-
+import { IUserName } from "../store/ducks/userName/types";
+import { IUserPassword } from "../store/ducks/userPassword/types";
 
 export interface ITextInput extends TextInputProps {
 	placeholder?: string;
@@ -33,3 +34,8 @@ export interface ICryptocurrency {
 	rank: number;
 	name: string;
 }
+
+export interface StateProps {
+	userCredential: IUserName[] | IUserPassword[];
+}
+  

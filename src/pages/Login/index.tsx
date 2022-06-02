@@ -4,20 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { ApplicationState } from "../../store";
 import * as UserNameAction from "../../store/ducks/userName/actions";
 import * as UserPasswordAction from "../../store/ducks/userPassword/actions";
-import { IUserName } from "../../store/ducks/userName/types";
 
 import { useNavigation } from "@react-navigation/native";
 import { View, Alert} from 'react-native';
 
 import TextInput from "../../components/TextInput";
 import TouchableButton from "../../components/TouchableButton";
+import { StateProps } from '../../utils/interfaces';
 
 import { Container } from './styles';
-import { IUserPassword } from "../../store/ducks/userPassword/types";
-
-interface StateProps {
-  userCredential: IUserName[] | IUserPassword[];
-}
 
 const Login: React.FC<StateProps> = () => {
   const userCredential = useSelector((state: ApplicationState) => 
