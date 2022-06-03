@@ -38,4 +38,14 @@ export interface ICryptocurrency {
 export interface StateProps {
 	userCredential: IUserName[] | IUserPassword[];
 }
+
+export interface IUserTransactions {
+	id: number;
+	name: string;
+	value: string;
+	operation: string;
+}
   
+export interface ITransactions {
+	operations: IUserTransactions[];
+}

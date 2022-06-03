@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
 import { FlatList } from 'react-native-gesture-handler';
-import { ListRenderItem, ScrollView } from 'react-native';
+import { ListRenderItem, ScrollView, View } from 'react-native';
 
 import api from '../../services/CoinMarketCapApi';
 import { API_KEY } from '../../utils/CoinMarketCapCredential';
@@ -34,6 +34,7 @@ const HomePage = () => {
         color='#6A5ACD'
         onPress={() => navigate("NegotiationPage", {
           name: item.name,
+          id: item.id,
         })}
       >
           {item.name}
@@ -44,11 +45,13 @@ const HomePage = () => {
   return (
     <Container>
       <ScrollView>
-        <FlatList
-          data={cryptocurrency}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.name}
-        />
+        <View>
+          <FlatList
+            data={cryptocurrency}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.name}
+          />
+        </View>
       </ScrollView>
     </Container>
   );
