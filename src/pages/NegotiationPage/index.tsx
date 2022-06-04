@@ -7,7 +7,7 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 
 import TextInput from '../../components/TextInput';
 import TouchableButton from '../../components/TouchableButton';
-import { ICryptocurrency, ITransactions, IUserTransactions } from '../../utils/interfaces';
+import { ICryptocurrency } from '../../utils/interfaces';
 import * as UserNameAction from "../../store/ducks/userName/actions";
 import { ApplicationState } from '../../store';
 
@@ -47,13 +47,6 @@ const NegotiationPage: React.FC = () => {
     }
 
     transactionsArray.push({ id, name, operation, cryptoQuantity })
-
-    // transactionsArray.push(id)
-    // transactionsArray.push(userName)
-    // transactionsArray.push(cryptoQuantity)
-    // transactionsArray.push(operation)
-
-    // transactionsArray.splice(0, transactionsArray.length);
 
     await AsyncStorage.setItem('transactions', JSON.stringify(transactionsArray));
 }

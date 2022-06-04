@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {  } from 'react-native-table-component'
 
 export const Container = styled.View`
 	flex: 1;
@@ -13,10 +14,8 @@ export const IconWrapper = styled.TouchableOpacity `
 	top: 65px;
 `;
 
-export const MainWrapper = styled.View `
-	 flex: 1;
-	 align-items: center;
-	 justify-content:center;
+export const TableWrapper = styled.View `
+	 margin-top: 40px ;
 `;
 
 export const Wrapper = styled.View `
