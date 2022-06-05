@@ -7,19 +7,17 @@ import api from '../../services/CoinMarketCapApi';
 import { API_KEY } from '../../utils/CoinMarketCapCredential';
 import { ICryptocurrency } from '../../utils/interfaces';
 import TouchableButton from '../../components/TouchableButton';
-import TextInput from '../../components/TextInput';
 
 import { Container, Wrapper } from './styles';
 
 const HomePage = () => {
   const { navigate } = useNavigation();
 
-  const [search, setSearch] = useState("");
   const [cryptocurrency, setCryptocurrency] = useState<ICryptocurrency[]>([]);
 
   useEffect(() => {
     async function fetchData() {
-      const request = await api.get("cryptocurrency/map?limit=45", {
+      const request = await api.get("cryptocurrency/map", {
         headers: {
           "X-CMC_PRO_API_KEY": API_KEY
         }
