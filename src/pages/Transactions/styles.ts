@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import {  } from 'react-native-table-component'
 
 export const Container = styled.View`
 	flex: 1;
@@ -8,33 +7,15 @@ export const Container = styled.View`
 	padding-top: 35px;
 `;
 
-export const IconWrapper = styled.TouchableOpacity `
-	position: absolute;
-	left: 30px;
-	top: 65px;
-`;
-
 export const TableWrapper = styled.View `
-	 margin-top: 40px ;
+	margin-top: 30px ;
+	padding: 15px;
 `;
 
-export const Wrapper = styled.View `
-	background-color: #4F4F4F;
-
-	flex: 1;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-around;
-	
-	width: 280px;
-	margin: 20px;
-	height: 40px;
-	border-radius: 16px;
-`;
-
-export const Informations = styled.Text `
-	color: #fff;
-  font-size: 16px;
+export const MainText = styled.Text `
+	color: black;
+  font-size: 28px;
   align-self: center;
   font-weight: bold;
+  padding: 20px;
 `;

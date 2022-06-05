@@ -4,30 +4,18 @@ import { IUserName } from "../store/ducks/userName/types";
 import { IUserPassword } from "../store/ducks/userPassword/types";
 
 export interface ITextInput extends TextInputProps {
+	value?: string;
 	placeholder?: string;
 	secureTextEntry?: boolean;
 	onChangeText?: ((text: string) => void);
 }
 
-export interface IErrorMessage {
-	text: string;
-}
 
 export interface TouchableProps extends ButtonHTMLAttributes<TouchableOpacityProps> {
 	color?: string;
 	onPress?: ((event: FormEvent<HTMLFormElement>) => void);
 	tvParallaxProperties?: {};
-}
-
-export interface IPokemonName {
-	name: string;
-	url: string;
-}
-
-export interface IPokemonMove {
-	name: string;
-	url: string;
-}
+}	
 
 export interface ICryptocurrency {
 	id: number;
@@ -42,10 +30,15 @@ export interface StateProps {
 export interface IUserTransactions {
 	id: number;
 	name: string;
-	value: string;
+	cryptoQuantity: string;
 	operation: string;
 }
   
 export interface ITransactions {
 	operations: IUserTransactions[];
+}
+
+export interface IFieldName {
+  fieldName: string;
+  text: string | number;
 }

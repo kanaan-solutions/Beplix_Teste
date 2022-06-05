@@ -8,6 +8,7 @@ export const FieldTable = styled.View`
 `;
 
 export const FieldText = styled.Text`
-  font-size: 13px;
+  font-size: 14px;
   color: #000;
+  font-weight: bold ;
 `;

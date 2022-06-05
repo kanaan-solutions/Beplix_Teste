@@ -35,26 +35,23 @@ const NegotiationPage: React.FC = () => {
     setUserName(userCredential?.userName.data);
   }, [])
 
-  const regex = /\d+/g;;
-
-  async function handleTransaction() {
-    const transactions = await AsyncStorage.getItem('transactions');
-
-    let transactionsArray = [];
-
-    if(transactions) {
-      transactionsArray = JSON.parse(transactions);
-    }
-
-    transactionsArray.push({ id, name, operation, cryptoQuantity })
-
-    await AsyncStorage.setItem('transactions', JSON.stringify(transactionsArray));
-}
+  const regex = /\d+/g;
 
   async function handleCall() {
     if (cryptoQuantity.match(regex)) {
 			setOperation("Compra");	
-      handleTransaction();
+
+      const transactions = await AsyncStorage.getItem('transactions');
+
+      let transactionsArray = [];
+  
+      if(transactions) {
+        transactionsArray = JSON.parse(transactions);
+      }
+  
+      transactionsArray.push({ id, name, operation, cryptoQuantity })
+  
+      await AsyncStorage.setItem('transactions', JSON.stringify(transactionsArray));
 
 			Alert.alert(`Caro ${userName} você acaba de comprar ${cryptoQuantity} de ${name}. `);
 			navigate("Transactions");
@@ -66,7 +63,19 @@ const NegotiationPage: React.FC = () => {
 	async function handlePut() {
     if (cryptoQuantity.match(regex)) {
 			setOperation("Venda");
-      handleTransaction();
+
+      const transactions = await AsyncStorage.getItem('transactions');
+
+      let transactionsArray = [];
+  
+      if(transactions) {
+        transactionsArray = JSON.parse(transactions);
+      }
+  
+      transactionsArray.push({ id, name, operation, cryptoQuantity })
+  
+      await AsyncStorage.setItem('transactions', JSON.stringify(transactionsArray));
+
 
 			Alert.alert(`Caro ${userName} você acaba de vender ${cryptoQuantity} de ${name}. `);
 			navigate("Transactions");

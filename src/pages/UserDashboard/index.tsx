@@ -6,13 +6,16 @@ import { ListRenderItem, ScrollView, View } from 'react-native';
 import api from '../../services/CoinMarketCapApi';
 import { API_KEY } from '../../utils/CoinMarketCapCredential';
 import { ICryptocurrency } from '../../utils/interfaces';
+import TouchableButton from '../../components/TouchableButton';
+import TextInput from '../../components/TextInput';
 
 import { Container, Wrapper } from './styles';
-import TouchableButton from '../../components/TouchableButton';
 
 const HomePage = () => {
-  const [cryptocurrency, setCryptocurrency] = useState<ICryptocurrency[]>([]);
   const { navigate } = useNavigation();
+
+  const [search, setSearch] = useState("");
+  const [cryptocurrency, setCryptocurrency] = useState<ICryptocurrency[]>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -31,7 +34,7 @@ const HomePage = () => {
   const renderItem: ListRenderItem<ICryptocurrency> = ({ item }) => (
     <Wrapper key={item.id}> 
       <TouchableButton 
-        color='#6A5ACD'
+        color='#708090'
         onPress={() => navigate("NegotiationPage", {
           name: item.name,
           id: item.id,

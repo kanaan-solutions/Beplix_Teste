@@ -1,7 +1,6 @@
 import { applyMiddleware, createStore, Store } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { persistStore, persistReducer } from 'redux-persist'; 
-import storage from 'redux-persist/lib/storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { UserNameState } from './ducks/userName/types';

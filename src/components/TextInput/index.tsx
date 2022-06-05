@@ -4,6 +4,7 @@ import { ITextInput } from '../../utils/interfaces';
 import { Container } from './styles';
 
 const TextInput: React.FC<ITextInput> = ({
+  value,
   placeholder,
   secureTextEntry,
   onChangeText
@@ -15,6 +16,7 @@ const TextInput: React.FC<ITextInput> = ({
         secureTextEntry={secureTextEntry}
         {...{ placeholder }}
         onChangeText={onChangeText}
+        value={value}
       />
   );
 };

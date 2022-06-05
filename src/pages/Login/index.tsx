@@ -7,12 +7,14 @@ import * as UserPasswordAction from "../../store/ducks/userPassword/actions";
 
 import { useNavigation } from "@react-navigation/native";
 import { View, Alert} from 'react-native';
+import { Entypo } from '@expo/vector-icons'
 
 import TextInput from "../../components/TextInput";
 import TouchableButton from "../../components/TouchableButton";
 import { StateProps } from '../../utils/interfaces';
+import bitcoinImage from '../../../assets/bitcoin.jpeg';
 
-import { Container } from './styles';
+import { Container, IconWrapper, PasswordContainer } from './styles';
 
 const Login: React.FC<StateProps> = () => {
   const userCredential = useSelector((state: ApplicationState) => 
@@ -25,6 +27,8 @@ const Login: React.FC<StateProps> = () => {
   const [pokemonName, setPokemonName] = useState("");
   const [password, setPassword] = useState("");
   const [moveName, setMoveName] = useState("");
+  const [show, setShow] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   const { navigate } = useNavigation();
 
@@ -41,12 +45,16 @@ const Login: React.FC<StateProps> = () => {
       Alert.alert("Usuário ou senha não conferem")
     } else {
       navigate("UserDashboard")
+      setShow(false);
+      setVisible(true);
     }
   }
 
   return (
     <>
-      <Container>
+      <Container
+        source={bitcoinImage}
+      >
 
         <TextInput 
           placeholder="Usuário"
@@ -54,15 +62,33 @@ const Login: React.FC<StateProps> = () => {
           onChangeText={(text) => setUser(text)}
         />
 
-        <TextInput 
-          placeholder="Senha"
-          value={password}
-          secureTextEntry={true}
-          onChangeText={(text) => setPassword(text)}
-        />
+        <PasswordContainer>
+          <TextInput 
+            placeholder="Senha"
+            value={password}
+            secureTextEntry={visible}
+            onChangeText={(text) => setPassword(text)}
+          />
+
+            <IconWrapper 
+              onPress={ () => {
+                setVisible(!visible);
+                setShow(!show);}
+              }
+            >
+              <Entypo
+                name={show === false ? "eye" : "eye-with-line"}
+                size={26}
+                color={"#888484"}
+              />
+            </IconWrapper>
+        </PasswordContainer>
 
         <View style={{ marginTop: 20 }}>
-          <TouchableButton color="#c04e4e" onPress={handleLogin}>
+          <TouchableButton 
+            color="#c04e4e" 
+            onPress={handleLogin}
+          >
             Login
           </TouchableButton>
         </View>

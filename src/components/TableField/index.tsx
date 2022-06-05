@@ -1,13 +1,10 @@
 import React from 'react';
 
+import { IFieldName }  from "../../utils/interfaces";
+
 import { FieldTable, FieldText } from './styles';
 
-interface Props {
-  fieldName: string;
-  text: string | number;
-}
-
-const TableField: React.FC<Props> = ({ fieldName, text }) => {
+const TableField: React.FC<IFieldName> = ({ fieldName, text }) => {
   return (
     <FieldTable style={{ borderBottomWidth: 1, borderBottomColor: "#ebdddd"}}>
       <FieldText>{ fieldName }</FieldText>
