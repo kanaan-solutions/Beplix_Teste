@@ -23,8 +23,10 @@ npm install ou yarn install
 ```
 
 ### Credenciais de Login
-...
+```
+# Usuário
+arceus
 
-Usuário: arceus
-Senha: swords-dance
-...
+# Senha
+swords-dance
+```
